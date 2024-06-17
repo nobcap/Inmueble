@@ -1,32 +1,118 @@
-document.getElementById('calculateBtn').addEventListener('click', function() {
-    const price = parseFloat(document.getElementById('price').value);
-    const obraNueva = document.querySelector('input[name="obraNueva"]:checked').value;
-    const hipoteca = document.querySelector('input[name="hipoteca"]:checked').value;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
 
-    if (isNaN(price) || price <= 0) {
-        alert('Por favor, introduzca un precio válido.');
-        return;
-    }
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
 
-    const formatNumber = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-    const reserva = (price * 0.01).toFixed(2);
-    const impuestoTransmisionPorcentaje = obraNueva === 'si' ? '10%' : '6%';
-    const impuestoTransmision = (price * (obraNueva === 'si' ? 0.10 : 0.06)).toFixed(2);
-    const notariaPorcentaje = hipoteca === 'si' ? '2%' : '1%';
-    const notaria = (price * (hipoteca === 'si' ? 0.02 : 0.01)).toFixed(2);
-    const arras = (price * 0.10).toFixed(2);
-    const total = (parseFloat(reserva) + parseFloat(impuestoTransmision) + parseFloat(notaria) + parseFloat(arras)).toFixed(2);
+.language-switcher {
+    text-align: right;
+    margin-bottom: 10px;
+}
 
-    document.getElementById('reserva').textContent = `€${formatNumber(reserva)}`;
-    document.getElementById('impuestoTransmision').textContent = `€${formatNumber(impuestoTransmision)}`;
-    document.getElementById('impuestoTransmisionPorcentaje').textContent = impuestoTransmisionPorcentaje;
-    document.getElementById('notaria').textContent = `€${formatNumber(notaria)}`;
-    document.getElementById('notariaPorcentaje').textContent = notariaPorcentaje;
-    document.getElementById('arras').textContent = `€${formatNumber(arras)}`;
-    document.getElementById('total').textContent = `€${formatNumber(total)}`;
-});
+.language-switcher span {
+    font-size: 14px;
+    margin-right: 5px;
+}
 
-document.getElementById('reviewBtn').addEventListener('click', function() {
-    window.location.href = 'https://www.google.com/search?client=firefox-b-d&sca_esv=ba8d56c099ffe98e&sca_upv=1&sxsrf=ADLYWIKyECDaJr5oElQUoBylSSlDz7Q9BA:1718280302486&q=engels+volkers+la+moraleja&uds=ADvngMhWLxdD0hqgqE9I5Yd4cUhifDgBTq5EOcDegoQPpnv4p-X8WxLsb3Sqia2gY7i0pgteGi1vQxzWGgJGk37DIBQUgn_G2baPy7nWUxkPLV9XratVZufequuWleDsDPhdUO2WDz99&si=ACC90nwjPmqJHrCEt6ewASzksVFQDX8zco_7MgBaIawvaF4-7h0L263KZOVWOjIIqnVUquHAC6KctDxt_dK7Jpno1POFdNQFu9B30JvU6ls6f9GU6E29kmg%3D&sa=X&ved=2ahUKEwjchrf4xNiGAxUJ-QIHHSEsAEEQ3PALegQIFhAE&biw=1280&bih=611&dpr=1.5';
-});
+.flag-icon {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.radio-group label {
+    font-size: 16px;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+   	align-items: center;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+.results {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.results p {
+    margin: 5px 0;
+}
