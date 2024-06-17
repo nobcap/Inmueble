@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OFERTA DEL INMUEBLE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-switcher">
+                <a href="#" id="esBtn">ES</a>
+                <img src="https://i.ibb.co/g9QxdCz/Spain-Flag.png" alt="Bandera de España" class="flag-icon">
+                <a href="#" id="engBtn">ENG</a>
+                <img src="https://i.ibb.co/tBJNM3t/ukFlag.jpg" alt="Bandera del Reino Unido" class="flag-icon">
+            </div>
+            <img src="https://media-cdn.tripadvisor.com/media/photo-s/0d/86/e4/22/skyline-de-madrid-wwwmadgreetc.jpg" alt="Skyline de Madrid">
+        </header>
+        <h1 id="mainTitle">OFERTA DEL INMUEBLE</h1>
+        <form id="priceForm">
+            <label for="price" id="priceLabel">Precio del inmueble:</label>
+            <input type="number" id="price" name="price" required>
+            
+            <label id="obraNuevaLabel">Obra nueva:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="obraNueva" value="si" required> Sí</label>
+                <label><input type="radio" name="obraNueva" value="no" required> No</label>
+            </div>
+            
+            <label id="hipotecaLabel">Hipoteca:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="hipoteca" value="si" required> Sí</label>
+                <label><input type="radio" name="hipoteca" value="no" required> No</label>
+            </div>
+            
+            <div class="buttons">
+                <button type="button" id="calculateBtn">Calcular</button>
+            </div>
+        </form>
+        <div id="results" class="results">
+            <p>1% de reserva: <span id="reserva"></span></p>
+            <p>Impuesto de transmisión: <span id="impuestoTransmision"></span> (<span id="impuestoTransmisionPorcentaje"></span>)</p>
+            <p>Gastos de notaría: <span id="notaria"></span> (<span id="notariaPorcentaje"></span>)</p>
+            <p>10% de arras: <span id="arras"></span></p>
+            <p>Total a pagar: <span id="total"></span></p>
+        </div>
+        <div class="buttons">
+            <button type="button" id="callTaniaBtn" onclick="window.location.href='tel:+34655048972'">Llamar a Tania</button>
+            <button type="button" id="reviewBtn">Déjame una reseña</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
